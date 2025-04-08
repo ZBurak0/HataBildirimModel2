@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Onay Kodu Doğrulama";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p>Lütfen e-posta adresinize gönderilen onay kodunu giriniz.</p>
+
+<form asp-action="VerifyCode" method="post">
+    <div class="form-group">
+        <label for="enteredCode">Onay Kodu</label>
+        <input type="text" class="form-control" id="enteredCode" name="enteredCode" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Onayla</button>
+</form>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mt-3">
+        @ViewData["ErrorMessage"]
+    </div>
+}
