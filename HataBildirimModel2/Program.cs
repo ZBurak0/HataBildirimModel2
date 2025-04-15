@@ -1,4 +1,5 @@
 using HataBildirimModel.Models;
+using HataBildirimModel2.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -6,15 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<FaultInterface, FaultRepository>();
 
 //sql serverý baðlayan kod 
 builder.Services.AddDbContext<AppDbContext>(Options =>
 {
     Options.UseSqlServer(builder.Configuration.GetConnectionString("Sqlcon"));
 });
-
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AdminRepository>();
+builder.Services.AddScoped<FaultRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HataBildirimModel2.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HataBildirimModel.Models
 {
@@ -12,5 +13,11 @@ namespace HataBildirimModel.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<FaultNotification> FaultNotifications { get; set; }
+        public DbSet<Filen> Filens {  get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<FaulType> FaulTypes { get; set; }
+
+
     }
 }

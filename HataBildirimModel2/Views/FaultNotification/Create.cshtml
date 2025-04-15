@@ -1,0 +1,51 @@
+﻿@model HataBildirimModel2.Models.FaultNotification
+
+@{
+    ViewData["Title"] = "Yeni Hata Bildirimi Oluştur";
+}
+
+<h1>Yeni Hata Bildirimi</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Anza Adı</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Kullanıcı</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FaulTypeId" class="control-label">Anza Türü</label>
+                <select asp-for="FaulTypeId" class="form-control" asp-items="ViewBag.FaulTypes"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Explanation" class="control-label">Açıklama</label>
+                <textarea asp-for="Explanation" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Explanation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FileId" class="control-label">Dosya</label>
+                <select asp-for="FileId" class="form-control" asp-items="ViewBag.Files"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Oluştur" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Dön</a>
+</div>
